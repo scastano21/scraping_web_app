@@ -1,20 +1,27 @@
 import streamlit as st
-import pandas as pd
-import os
-import subprocess
+import requests
+from bs4 import BeautifulSoup
 
-# Ejecutar scraping si no existe el CSV
-csv_path = "data/producto.csv"
-if not os.path.exists(csv_path):
-    st.warning("Archivo CSV no encontrado. Ejecutando scraping...")
-    subprocess.run(["python", "scraping.py"])
+st.title("Scraping en vivo - Galaxy S23 Ultra (Mercado Libre)")
 
-# Mostrar título y datos
-st.title("Precio del Samsung Galaxy S23 Ultra")
+# URL del producto
+url = "https://www.mercadolibre.com.co/p/MCO24594025"
+headers = {"User-Agent": "Mozilla/5.0"}
 
 try:
-    df = pd.read_csv(csv_path)
-    st.write(df)
-except FileNotFoundError:
-    st.error("No se pudo generar el archivo producto.csv. Verifica el scraping.")
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, "html.parser")
 
+    # Extraer título y precio
+    titulo = soup.find("h1").text.strip() if soup.find("h1") else "Título no encontrado"
+    precio = soup.find("span", {"class": "andes-money-amount__fraction"})
+    precio = precio.text.strip() if precio else "Precio no encontrado"
+
+    # Mostrar resultados
+    st.subheader("Producto:")
+    st.write(titulo)
+    st.subheader("Precio:")
+    st.write(f"${precio} COP")
+
+except Exception as e:
+    st.error(f"Ocurrió un error al hacer scraping: {e}")
