@@ -1,8 +1,8 @@
-# 📦 Scraping Web App - Samsung Galaxy S23 Ultra
+# Scraping Web App - Samsung Galaxy S23 Ultra
 
 Esta aplicación web realiza **scraping en vivo** del producto *Samsung Galaxy S23 Ultra* desde [Mercado Libre Colombia](https://www.mercadolibre.com.co/p/MCO24594025). Extrae dinámicamente el nombre y el precio del producto y los muestra en una interfaz desarrollada con **Streamlit**.
 
-## 🔧 Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 - Python 3.10
 - Requests & BeautifulSoup (Scraping)
@@ -11,11 +11,11 @@ Esta aplicación web realiza **scraping en vivo** del producto *Samsung Galaxy S
 - GitHub Actions (CI/CD)
 - Render.com (Despliegue en la nube)
 
-## 🚀 Aplicación en línea
+##  Aplicación en línea
 
-🌐 [Ver aplicación desplegada](https://scraping-web-app.onrender.com)
+ [Ver aplicación desplegada](https://scraping-web-app.onrender.com)
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 scraping_web_app/
@@ -28,7 +28,7 @@ scraping_web_app/
 │       └── ci.yml         # Pipeline CI/CD de GitHub Actions
 ```
 
-## 🔄 CI/CD con GitHub Actions
+## CI/CD con GitHub Actions
 
 Cada vez que se hace push o merge a la rama `main`, GitHub Actions ejecuta:
 - Instalación de dependencias
@@ -36,7 +36,7 @@ Cada vez que se hace push o merge a la rama `main`, GitHub Actions ejecuta:
 
 El flujo está definido en `.github/workflows/ci.yml`.
 
-## 🧠 Cómo ejecutar localmente
+## Cómo ejecutar localmente
 
 1. Clona el repositorio:
 ```bash
@@ -54,7 +54,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## 📚 Créditos y fuentes
+## Créditos y fuentes
 
 - [Mercado Libre Colombia - Samsung S23 Ultra](https://www.mercadolibre.com.co/p/MCO24594025)
 - [Streamlit Docs](https://docs.streamlit.io)
@@ -63,4 +63,4 @@ streamlit run app.py
 
 ---
 
-Desarrollado por **Sebastián Castaño Cossio** 👨‍💻
+Desarrollado por **Sebastián Castaño Cossio** 
