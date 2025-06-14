@@ -13,9 +13,9 @@ try:
     soup = BeautifulSoup(response.text, "html.parser")
 
     # Extraer título y precio
-    titulo = soup.find("h1").text.strip() if soup.find("h1") else "Samsung Galaxy S23 Ultra"
+    titulo = soup.find("h1").text.strip() if soup.find("h1") else "Título no encontrado"
     precio = soup.find("span", {"class": "andes-money-amount__fraction"})
-    precio = precio.text.strip() if precio else "4.299.000"
+    precio = precio.text.strip() if precio else "Precio no encontrado"
 
     # Mostrar resultados
     st.subheader("Producto:")
@@ -24,9 +24,6 @@ try:
     st.write(f"${precio} COP")
 
 except Exception as e:
-    st.error("Ocurrió un error al hacer scraping. Mostrando datos simulados.")
-    st.subheader("Producto:")
-    st.write("Samsung Galaxy S23 Ultra")
-    st.subheader("Precio:")
-    st.write("$4.299.000 COP")
+    st.error(f"Ocurrió un error al hacer scraping: {e}")
+
 
